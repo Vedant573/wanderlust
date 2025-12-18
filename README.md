@@ -583,6 +583,6 @@ This project is open source and available under the MIT License.
 
 ---
 
-**Project Repository**: [https://github.com/krishnaacharyaa/wanderlust](https://github.com/krishnaacharyaa/wanderlust)
+**The Wanderlust Website was created by:**: [https://github.com/krishnaacharyaa/wanderlust](https://github.com/krishnaacharyaa/wanderlust)
 
-Made with ❤️ for learning DevOps practices
+Made for learning DevOps practices by deploying 3-tier application to EKS.
