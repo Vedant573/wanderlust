@@ -1,124 +1,588 @@
-<div>
-  <h1>Wanderlust</h1>
-  <h2>The Ultimate Travel Blog 🌍✈️ for You </h2>
-</div>
+# 🌍 Wanderlust - Complete DevOps CI/CD Pipeline
 
-![Preview Image](https://github.com/krishnaacharyaa/wanderlust/assets/116620586/17ba9da6-225f-481d-87c0-5d5a010a9538)
+> A production-grade 3-tier web application deployed on AWS EKS with comprehensive DevOps automation
 
-<hr>
+![Architecture](https://img.shields.io/badge/Architecture-3--Tier-blue)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-Jenkins%20%2B%20ArgoCD-green)
+![Cloud](https://img.shields.io/badge/Cloud-AWS%20EKS-orange)
+![Monitoring](https://img.shields.io/badge/Monitoring-Prometheus%20%2B%20Grafana-red)
 
-<div>
-  <h2>🔗 Important Links</h2>
-</div>
+## 📋 Table of Contents
 
-<table border="1">
-  <tr>
-      <td><img src="https://github.com/Meetjain1/wanderlust/assets/133582566/5ca6c472-5c73-41b2-a2df-389cc3e14881.png" alt="Discord Logo" width="50"></td>
-      <td><a href="https://discord.gg/FEKasAdCrG"> Join our project's Discord Channel here </a></td>
-  </tr>
-  <tr>
-      <td><img src="https://github.com/Meetjain1/wanderlust/assets/133582566/ffda08c0-3c7a-46b0-b7ac-6bc374184ec7.png" alt="Figma Logo" width="50"></td>
-      <td><a href="https://www.figma.com/file/zqNcWGGKBo5Q2TwwVgR6G5/WanderLust--A-Travel-Blog-App?type=design&node-id=0%3A1&mode=design&t=c4oCG8N1Fjf7pxTt-1"> Find our project's Figma links here</a></td>
-  </tr>
-  <tr>
-      <td><img src="https://github.com/krishnaacharyaa/wanderlust/assets/133582566/47d71dd6-0390-479e-9d4e-3f077ef1a987.png" alt="YouTube Logo" width="50"></td>
-      <td><a href="https://youtu.be/ANfC1u_N_A0?feature=shared"> Find our Collaboration Video with TrainwithShubham here </a></td>
-  </tr>
-</table>
+- [Overview](#-overview)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Prerequisites](#-prerequisites)
+- [Infrastructure Setup](#-infrastructure-setup)
+- [Installation Guide](#-installation-guide)
+- [CI/CD Pipeline](#-cicd-pipeline)
+- [Monitoring](#-monitoring)
+- [Cleanup](#-cleanup)
 
-<hr>
+## 🎯 Overview
 
-<div>
-  <h2><img src="https://github.com/Meetjain1/wanderlust/assets/133582566/4a07b161-b8d6-4803-804a-3b0db699023e" width="35" height="35"> Goal of this project </h2>
-</div>
+Wanderlust is a full-stack travel blog application demonstrating enterprise-level DevOps practices. This project showcases:
 
-At its core, this project embodies two important aims:
+- **3-Tier Architecture**: React frontend, Node.js backend, MongoDB database
+- **Containerization**: Docker-based microservices
+- **Orchestration**: Kubernetes (AWS EKS)
+- **CI/CD**: Automated pipelines with Jenkins and ArgoCD
+- **Security**: OWASP dependency checks, Trivy scanning, SonarQube analysis
+- **Monitoring**: Prometheus and Grafana stack
+- **Caching**: Redis implementation for performance optimization
 
-1. **Start Your Open Source Journey**: It's aimed to kickstart your open-source journey. Here, you'll learn the basics of Git and get a solid grip on the MERN stack and I strongly believe that learning and building should go hand in hand.
-2. **React Mastery**: Once you've got the basics down, a whole new adventure begins of mastering React. This project covers everything, from simple form validation to advanced performance enhancements. And I've planned much more cool stuff to add in the near future if the project hits more number of contributors.
+## 🏗 Architecture
 
-_We want you to get the most out of this project—it's all about learning, contributing, and growing in the open-source community._
-<hr>
+```
+┌─────────────┐      ┌─────────────┐      ┌─────────────┐
+│   Frontend  │─────▶│   Backend   │─────▶│   MongoDB   │
+│   (React)   │      │  (Node.js)  │      │  (Database) │
+└─────────────┘      └─────────────┘      └─────────────┘
+                            │
+                            ▼
+                     ┌─────────────┐
+                     │    Redis    │
+                     │  (Caching)  │
+                     └─────────────┘
+```
 
-<div>
-  <h2><img src="https://github.com/Meetjain1/wanderlust/assets/133582566/1ee5934a-27be-4502-a7bf-e6a8c78fe5a3" width="35" height="35"> Features</h2>
-</div>
+**Deployment Flow:**
+```
+GitHub → Jenkins (CI) → Docker Hub → ArgoCD (CD) → AWS EKS
+```
 
-- **Featured Posts :** Highlight top travel stories and destinations on the homepage to showcase the best content and inspire readers with exciting travel experiences.
-- **User-Friendly Interface:** Navigate effortlessly through captivating travel content with our intuitive design.
-- **Discover By topic categories:** **Discover by Topic Categories**: Explore diverse travel experiences categorized by travel, nature, city, Adventure and Beaches..
-  
-<hr>
+## 🛠 Tech Stack
 
-<div>
-  <h2><img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Ready to Contribute?</h2>
-</div>
+### Application Layer
+- **Frontend**: React.js
+- **Backend**: Node.js
+- **Database**: MongoDB
+- **Caching**: Redis
 
-Kindly go through [CONTRIBUTING.md](https://github.com/krishnaacharyaa/wanderlust/blob/main/.github/CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
+### DevOps Tools
+- **Version Control**: GitHub
+- **Containerization**: Docker
+- **CI**: Jenkins
+- **Security Scanning**: OWASP Dependency Check, Trivy, SonarQube
+- **CD**: ArgoCD
+- **Container Orchestration**: Kubernetes (AWS EKS)
+- **Monitoring**: Prometheus, Grafana (via Helm)
+- **Infrastructure**: AWS (EC2, EKS, IAM)
 
-If you would like to contribute to the project, please follow our contribution guidelines.
+## ✅ Prerequisites
 
-<hr>
-<!-- Open Source Programs -->
-  <div>
-    <h2><img src="https://github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/blob/master/Emojis/Hand%20gestures/Flexed%20Biceps.png?raw=true" width="35" height="35" > Open Source Programs</h2>
-  </div>
+- AWS Account with appropriate permissions
+- GitHub Account
+- Docker Hub Account
+- Basic knowledge of Linux, Docker, Kubernetes, and CI/CD concepts
 
-  <table border="1" cellpadding="10">
-        <tr>
-            <td rowspan="2">
-                <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/21b2bc42-bdd5-487a-a083-1b262c2f6d9b" alt="GSSOC Logo" width="100" height="55">
-            </td>
-            <td>
-                <strong>GSSOC 2024</strong>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                This project is part of GirlScript Summer of Code. We warmly welcome contributions from the community to help elevate Wanderlust.
-            </td>
-        </tr>
-    </table>
+## 🚀 Infrastructure Setup
 
-<hr>
+### 1. AWS IAM Configuration
 
-<!-- Code of conduct -->
-<div>
-<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
-</div>
+Create an IAM user with administrator access:
 
-Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+```bash
+# User: terraform-user (Administrator Access)
+# Generate access keys for programmatic access
+```
 
-<hr>
+Create an IAM role for EC2:
 
-<!-- License -->
-<div>
-<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" width="35" height="35"> License</h2>
-</div>
+```bash
+# Role Name: ec2-wanderlust-role
+# Trusted Entity: EC2
+# Permissions: AdministratorAccess
+```
 
-This project is licensed under the [MIT License](./LICENSE).
+### 2. EC2 Master Instance Setup
 
-<hr>
+**Instance Specifications:**
+- **Type**: t2.large (2 vCPU, 8GB RAM)
+- **Storage**: 29GB
+- **Region**: us-east-2
+- **Role**: Attach `ec2-wanderlust-role`
 
-<div>
-  <h2><img src="https://github.com/Meetjain1/wanderlust/assets/133582566/af38ec84-7387-4af7-af85-8f408a4654e9" width="35" height="35"> Show Your Support</h2>
-</div>
+**Security Group Inbound Rules:**
 
-If you find this project interesting and inspiring, please consider showing your support by starring it on GitHub! Your star goes a long way in helping me reach more developers and encourages me to keep enhancing the project.
+| Port Range | Protocol | Description |
+|------------|----------|-------------|
+| 22 | TCP | SSH |
+| 80 | TCP | HTTP |
+| 443 | TCP | HTTPS |
+| 3000-10000 | TCP | Application Ports |
+| 6379 | TCP | Redis |
+| 6443 | TCP | Kubernetes API |
+| 8080 | TCP | Jenkins |
+| 9000 | TCP | SonarQube |
+| 30000-32767 | TCP | Kubernetes NodePorts |
 
-Feel free to get in touch with me for any further queries or support, happy to help :)
+## 📦 Installation Guide
 
-<hr>
+### Step 1: Initial Setup
 
- <!-- Cotributors -->
-<div>
-  <h2><img src="https://github.com/Meetjain1/wanderlust/assets/133582566/20610b38-b287-4bf0-8f28-932b9c76163d" width="40" height="40"> Contributors</h2>
-</div>
+SSH into your EC2 instance and update packages:
 
-We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating Wanderlust to greater heights. 😊
+```bash
+sudo apt-get update -y
+```
 
-<div>
-<a href="https://github.com/krishnaacharyaa/wanderlust/graphs/contributors">
-  <img width="90%" src="https://contrib.rocks/image?repo=krishnaacharyaa/wanderlust" />
-</a>
-</div>
+### Step 2: Install Docker
+
+```bash
+sudo apt-get install docker.io docker-compose-v2 -y
+sudo chmod 777 /var/run/docker.sock
+
+# Alternative: Add user to docker group
+sudo usermod -aG docker $USER && newgrp docker
+```
+
+### Step 3: Install Jenkins
+
+```bash
+sudo apt install fontconfig openjdk-21-jre -y
+
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt update -y
+sudo apt install jenkins -y
+```
+
+Access Jenkins at: `http://<EC2-PUBLIC-IP>:8080`
+
+Get initial admin password:
+```bash
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+### Step 4: Install AWS CLI
+
+```bash
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip -y
+unzip awscliv2.zip
+sudo ./aws/install
+
+# Configure AWS CLI
+aws configure
+# Enter: Access Key ID, Secret Access Key, Region (us-east-2), Output format (json)
+```
+
+### Step 5: Install kubectl
+
+```bash
+curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin
+kubectl version --short --client
+```
+
+### Step 6: Install eksctl
+
+```bash
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+```
+
+### Step 7: Create EKS Cluster
+
+```bash
+eksctl create cluster --name=wanderlust \
+  --region=us-east-2 \
+  --version=1.30 \
+  --without-nodegroup
+```
+
+⏱️ *This process takes approximately 15-20 minutes*
+
+### Step 8: Install Trivy (Security Scanner)
+
+```bash
+sudo apt-get install wget apt-transport-https gnupg lsb-release -y
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+sudo apt-get update -y
+sudo apt-get install trivy -y
+```
+
+### Step 9: Install SonarQube
+
+```bash
+docker run -itd --name SonarQube-Server -p 9000:9000 sonarqube:lts-community
+```
+
+Access SonarQube at: `http://<EC2-PUBLIC-IP>:9000`
+- Default credentials: `admin/admin` (change on first login)
+
+### Step 10: Associate IAM OIDC Provider
+
+```bash
+eksctl utils associate-iam-oidc-provider \
+  --region us-east-2 \
+  --cluster wanderlust \
+  --approve
+```
+
+### Step 11: Create EKS Node Group
+
+First, create an EC2 key pair named `eks-nodegroup-key` in us-east-2 region via AWS Console.
+
+```bash
+eksctl create nodegroup --cluster=wanderlust \
+  --region=us-east-2 \
+  --name=wanderlust \
+  --node-type=t2.large \
+  --nodes=2 \
+  --nodes-min=2 \
+  --nodes-max=2 \
+  --node-volume-size=29 \
+  --ssh-access \
+  --ssh-public-key=eks-nodegroup-key
+```
+
+Verify cluster:
+```bash
+kubectl get nodes
+```
+
+### Step 12: Install and Configure ArgoCD
+
+```bash
+# Create namespace
+kubectl create namespace argocd
+
+# Install ArgoCD
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# Wait for pods to be ready
+kubectl get pods -n argocd -w
+
+# Install ArgoCD CLI
+sudo curl --silent --location -o /usr/local/bin/argocd \
+  https://github.com/argoproj/argo-cd/releases/download/v2.4.7/argocd-linux-amd64
+
+sudo chmod +x /usr/local/bin/argocd
+
+# Change service type to NodePort
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
+
+# Get service details
+kubectl get svc -n argocd
+```
+
+Access ArgoCD UI at: `https://<WORKER-NODE-IP>:<ARGOCD-NODEPORT>`
+
+Get initial admin password:
+```bash
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+```
+
+**Note**: Update security groups for worker nodes to allow ArgoCD NodePort traffic.
+
+### Step 13: Connect EKS Cluster to ArgoCD
+
+```bash
+# Login to ArgoCD
+argocd login <ARGOCD-URL> --username admin
+
+# Get cluster context
+kubectl config get-contexts
+
+# Add cluster to ArgoCD
+argocd cluster add <CLUSTER-CONTEXT-NAME> --name wanderlust-eks-cluster
+```
+
+## 🔧 Jenkins Configuration
+
+### Install Required Plugins
+
+Navigate to: `Manage Jenkins → Plugins → Available Plugins`
+
+Install:
+- OWASP Dependency-Check
+- SonarQube Scanner
+- Docker
+- Pipeline: Stage View
+- Blue Ocean
+
+**Restart Jenkins after installation**
+
+### Configure OWASP
+
+1. Go to `Manage Jenkins → Tools`
+2. Add Dependency-Check installation
+   - Name: `OWASP`
+   - Install automatically from GitHub
+
+### Integrate SonarQube
+
+**Create SonarQube Token:**
+1. SonarQube → Administration → Security → Users
+2. Generate token with 30-day expiry
+
+**Add to Jenkins:**
+1. `Manage Jenkins → Credentials → Add Credentials`
+   - Kind: Secret text
+   - Secret: [SonarQube token]
+   - ID: `Sonar`
+   - Description: `Sonar Token`
+
+2. `Manage Jenkins → Tools → SonarQube Scanner`
+   - Name: `Sonar`
+   - Install automatically
+
+3. `Manage Jenkins → System → SonarQube Servers`
+   - Name: `Sonar`
+   - Server URL: `http://<EC2-IP>:9000`
+   - Server authentication token: Select `Sonar`
+
+**Configure SonarQube Webhook:**
+1. SonarQube → Administration → Configuration → Webhooks
+2. URL: `http://<JENKINS-URL>:8080/sonarqube-webhook/`
+
+### Configure GitHub Integration
+
+1. Generate GitHub Personal Access Token with repo permissions
+2. `Jenkins → Credentials → Add Credentials`
+   - Kind: Username with password
+   - Username: [Your GitHub username]
+   - Password: [GitHub token]
+   - ID: `Github-cred`
+   - Description: `GitHub credentials`
+
+### Configure Docker Hub
+
+1. Generate Docker Hub access token
+2. `Jenkins → Credentials → Add Credentials`
+   - Kind: Username with password
+   - Username: [Docker Hub username]
+   - Password: [Docker Hub token]
+   - ID: `docker`
+   - Description: `DockerHub`
+
+### Configure Email Notifications
+
+1. Generate Gmail App Password
+2. `Manage Jenkins → Credentials → Add Credentials`
+   - Kind: Username with password
+   - Username: [Your Gmail]
+   - Password: [App password]
+   - ID: `Gmail`
+
+3. `Manage Jenkins → System`
+   - **Extended E-mail Notification:**
+     - SMTP server: `smtp.gmail.com`
+     - SMTP Port: `465`
+     - Credentials: Select Gmail
+     - Use SSL: ✓
+   
+   - **E-mail Notification:**
+     - SMTP server: `smtp.gmail.com`
+     - Use SMTP Authentication: ✓
+     - Username: [Your Gmail]
+     - Password: [App password]
+     - Use SSL: ✓
+     - SMTP Port: `465`
+
+### Jenkins Shared Library
+
+1. `Manage Jenkins → System → Global Trusted Pipeline Libraries`
+2. Add library:
+   - Name: `Shared`
+   - Default version: `main`
+   - Modern SCM: Git
+   - Project repository: [Your shared library repo]
+
+## 🔄 CI/CD Pipeline
+
+### CI Pipeline Configuration
+
+1. Create new Jenkins pipeline:
+   - Name: `Wanderlust-CI`
+   - Type: Pipeline
+   - Description: `CI pipeline for Wanderlust application`
+
+2. Configure:
+   - Days to keep builds: `1`
+   - Max # of builds: `2`
+   - GitHub project URL: [Your repo URL]
+
+3. Pipeline script: Use Jenkinsfile from repository root
+
+**Pipeline Stages:**
+- Checkout code from GitHub
+- OWASP dependency scan
+- Trivy filesystem scan
+- SonarQube analysis
+- Build Docker images (Frontend & Backend)
+- Trivy image scan
+- Push to Docker Hub
+- Update deployment manifests
+
+### CD Pipeline Configuration
+
+1. Create new Jenkins pipeline:
+   - Name: `Wanderlust-CD`
+   - Type: Pipeline
+   - Description: `CD pipeline for Wanderlust application`
+
+2. Pipeline script: Use Jenkinsfile from GitOps folder
+
+**Pipeline Stages:**
+- Pull latest deployment configurations
+- Trigger ArgoCD sync
+- Deploy to Kubernetes cluster
+
+### ArgoCD Application Setup
+
+1. Create application in ArgoCD UI:
+   - **Application Name**: `wanderlust`
+   - **Project**: `default`
+   - **Sync Policy**: Automatic
+     - ✓ Prune Resources
+     - ✓ Self Heal
+     - ✓ Auto-create Namespace
+   - **Source**:
+     - Repository URL: [Your GitOps repo]
+     - Revision: `main`
+     - Path: `kubernetes`
+   - **Destination**:
+     - Cluster URL: [Select your cluster]
+     - Namespace: `wanderlust`
+
+2. Application endpoints:
+   - **Frontend**: `http://<WORKER-NODE-IP>:31000`
+   - **Backend**: `http://<WORKER-NODE-IP>:31100`
+
+**Note**: Enable these NodePorts in worker node security groups.
+
+## 📊 Monitoring
+
+### Install Helm
+
+```bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+
+# Add Helm stable charts
+helm repo add stable https://charts.helm.sh/stable
+```
+
+### Deploy Prometheus & Grafana
+
+```bash
+# Add Prometheus community Helm repository
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+# Create namespace
+kubectl create namespace prometheus
+
+# Install Prometheus stack
+helm install stable prometheus-community/kube-prometheus-stack -n prometheus
+
+# Verify installation
+kubectl get pods -n prometheus
+kubectl get svc -n prometheus
+```
+
+### Expose Services via NodePort
+
+**Prometheus:**
+```bash
+kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus
+# Change type from ClusterIP to NodePort
+```
+
+**Grafana:**
+```bash
+kubectl edit svc stable-grafana -n prometheus
+# Change type from ClusterIP to NodePort
+```
+
+Verify services:
+```bash
+kubectl get svc -n prometheus
+```
+
+### Access Grafana
+
+URL: `http://<WORKER-NODE-IP>:<GRAFANA-NODEPORT>`
+
+**Credentials:**
+- Username: `admin`
+- Password: Get from command below
+
+```bash
+kubectl get secret --namespace prometheus stable-grafana \
+  -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
+
+**Pre-configured Dashboards:**
+- Kubernetes cluster monitoring
+- Node exporter metrics
+- Pod resource usage
+- Application performance metrics
+
+## 🧹 Cleanup
+
+To delete all resources and avoid AWS charges:
+
+```bash
+# Delete EKS cluster and associated resources
+eksctl delete cluster --name=wanderlust --region=us-east-2
+```
+
+This will remove:
+- EKS cluster
+- Node groups
+- Associated VPC, subnets, and security groups
+- Load balancers
+- EC2 instances (worker nodes)
+
+**Manual Cleanup:**
+- Terminate the master EC2 instance
+- Delete IAM roles and users created for the project
+- Remove Docker images from Docker Hub (if desired)
+- Delete GitHub repositories (if desired)
+
+## 🎓 Learning Outcomes
+
+This project demonstrates:
+
+✅ Infrastructure as Code principles  
+✅ Containerization best practices  
+✅ Kubernetes orchestration  
+✅ CI/CD pipeline implementation  
+✅ Security scanning and quality gates  
+✅ GitOps deployment methodology  
+✅ Cloud-native monitoring solutions  
+✅ Production-grade AWS architecture  
+
+## 📝 Notes
+
+- All sensitive credentials (passwords, tokens, API keys) should be stored securely using secrets management solutions
+- Regularly update security scanning tools and dependencies
+- Monitor AWS costs and set up billing alerts
+- Implement backup strategies for production data
+- Follow security best practices for production deployments
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit pull requests or open issues for improvements.
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+---
+
+**Project Repository**: [https://github.com/krishnaacharyaa/wanderlust](https://github.com/krishnaacharyaa/wanderlust)
+
+Made with ❤️ for learning DevOps practices
